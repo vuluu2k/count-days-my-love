@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Lottie from 'react-lottie';
+
+import animationLove from 'assets/animations/mylove.json';
+import Music from 'components/Music';
+import Avatar from 'components/Avatar';
+import ImageLeft from 'assets/images/vuluu.jpg';
+import ImageRight from 'assets/images/bichboo.jpg';
 
 function App() {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationLove,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="title">My Love Count Days</h1>
+
+      <div className="wrapper-avatar">
+        <Avatar url={ImageLeft} />
+        <Lottie options={defaultOptions} height={400} width={400} />
+        <Avatar url={ImageRight} />
+      </div>
+
+      <div className="wrapper-music">
+        <Music />
+      </div>
     </div>
   );
 }
